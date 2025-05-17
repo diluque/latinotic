@@ -1,8 +1,27 @@
 <html>
-  <head>
-    <tittle>Latinotic</tittle>
-  </head>
-  <body>
-    <h1>Latinotic</h1>
-  </body>
+
+<body>
+
+<div id="paypal-button-container-P-727568775N408563FNAT5ULQ"></div>
+<script src="https://www.paypal.com/sdk/js?client-id=AbVa-KCNtrPjnbFqbom3Jwbp2kCws5IVFSR3aQ9Kp1ehGAdZCZnLk-s_IrGWZF4QdPc8TBamJ4r7WgGd&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'rect',
+          color: 'gold',
+          layout: 'vertical',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          /* Creates the subscription */
+          plan_id: 'P-727568775N408563FNAT5ULQ'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+      }
+  }).render('#paypal-button-container-P-727568775N408563FNAT5ULQ'); // Renders the PayPal button
+</script>
+</body>
 </html>
